@@ -29,8 +29,13 @@
     updated<br>
     <br>
 
+    <div class="done">
+        <p></p>
+    </div>
+
     <script type="text/javascript">
         const checkboxes = document.querySelectorAll('input[name="criteria"]');
+        const output = document.querySelector('.done p');
 
         function allChecked() {
             let totalChecked = 0;
@@ -42,7 +47,7 @@
             });
 
             if (totalChecked == checkboxes.length) {
-                alert("Well done!");
+                output.innerHTML = "BOOOOM!"
             }
         }
 
