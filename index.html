@@ -15,36 +15,25 @@
 <body>
     <p>Is the code ready for code review?</p>
 
-    <input type="checkbox" name="criteria" value="tests" onclick="return allChecked();">tests<br>
-    <input type="checkbox" name="criteria" value="variables" onclick="return allChecked();">variable names<br>
-    <input type="checkbox" name="criteria" value="order" onclick="return allChecked();">code order makes sense<br>
-    <input type="checkbox" name="criteria" value="docstrings" onclick="return allChecked();">it has docstrings or
+    <input type="checkbox" name="criteria" value="tests">tests<br>
+    <input type="checkbox" name="criteria" value="variables">variable names<br>
+    <input type="checkbox" name="criteria" value="order">code order makes sense<br>
+    <input type="checkbox" name="criteria" value="docstrings">it has docstrings or
     types<br>
-    <input type="checkbox" name="criteria" value="error" onclick="return allChecked();">proper error handling<br>
-    <input type="checkbox" name="criteria" value="single" onclick="return allChecked();">functions have a single
+    <input type="checkbox" name="criteria" value="error">proper error handling<br>
+    <input type="checkbox" name="criteria" value="single">functions have a single
     responsibility<br>
-    <input type="checkbox" name="criteria" value="side_effects" onclick="return allChecked();">functions avoid side
+    <input type="checkbox" name="criteria" value="side_effects">functions avoid side
     effects when possible<br>
-    <input type="checkbox" name="criteria" value="documentation" onclick="return allChecked();">documentation is
+    <input type="checkbox" name="criteria" value="documentation">documentation is
     updated<br>
     <br>
-    <!-- <button id="btn">what is missing?</button> -->
-
-
 
     <script type="text/javascript">
-        function getSelectedCheckboxValues(name) {
-            const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
-            let values = [];
-            checkboxes.forEach((checkbox) => {
-                values.push(checkbox.value);
-            });
-            return values;
-        }
+        const checkboxes = document.querySelectorAll('input[name="criteria"]');
 
         function allChecked() {
             let totalChecked = 0;
-            const checkboxes = document.querySelectorAll('input[name="criteria"]');
 
             checkboxes.forEach((checkbox) => {
                 if (checkbox.checked) {
@@ -57,10 +46,7 @@
             }
         }
 
-        // const btn = document.querySelector('#btn');
-        // btn.addEventListener('click', (event) => {
-        //     alert(getSelectedCheckboxValues('criteria'));
-        // });
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', allChecked));
     </script>
 </body>
 
