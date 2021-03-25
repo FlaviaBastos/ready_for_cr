@@ -9,33 +9,107 @@
             font-family: sans-serif;
             background: #ffc600;
         }
+
+        h3 {
+            font-size: 2rem;
+            color: #ae00ff;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .inbox {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        .item:last-child {
+            border-bottom: 0;
+        }
+
+        input:checked+p {
+            background: #F9F9F9;
+            text-decoration: line-through;
+        }
+
+        input[type="checkbox"] {
+            margin: 20px;
+        }
+
+        p {
+            margin: 0;
+            padding: 20px;
+            transition: background 0.2s;
+            flex: 1;
+            font-family: 'helvetica neue';
+            font-size: 20px;
+            font-weight: 200;
+            border-left: 1px solid #D1E2FF;
+        }
+
+        .done {
+            font-size: 5rem;
+            color: #ae00ff;
+            display: flex;
+            justify-content: space-around;
+        }
     </style>
 </head>
 
 <body>
-    <p>Is the code ready for code review?</p>
 
-    <input type="checkbox" name="criteria" value="tests">tests<br>
-    <input type="checkbox" name="criteria" value="variables">variable names<br>
-    <input type="checkbox" name="criteria" value="order">code order makes sense<br>
-    <input type="checkbox" name="criteria" value="docstrings">it has docstrings or
-    types<br>
-    <input type="checkbox" name="criteria" value="error">proper error handling<br>
-    <input type="checkbox" name="criteria" value="single">functions have a single
-    responsibility<br>
-    <input type="checkbox" name="criteria" value="side_effects">functions avoid side
-    effects when possible<br>
-    <input type="checkbox" name="criteria" value="documentation">documentation is
-    updated<br>
-    <br>
+    <h3>Is the code ready for code review?</h3>
 
     <div class="done">
-        <p></p>
+    </div>
+
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>Add tests</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Check variable names</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Code order makes sense</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>It has docstrings or types</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Error handling</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Functions have a single responsibility</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Functions avoid side effects when possible</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Documentation is updated</p>
+        </div>
     </div>
 
     <script type="text/javascript">
-        const checkboxes = document.querySelectorAll('input[name="criteria"]');
-        const output = document.querySelector('.done p');
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+        const output = document.querySelector('.done');
 
         function allChecked() {
             let totalChecked = 0;
