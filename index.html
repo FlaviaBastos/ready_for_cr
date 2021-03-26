@@ -19,7 +19,7 @@
 
         .inbox {
             max-width: 400px;
-            margin: 50px auto;
+            margin: 30px auto;
             background: white;
             border-radius: 5px;
             box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
@@ -58,6 +58,11 @@
         .done {
             font-size: 5rem;
             color: #ae00ff;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .reset {
             display: flex;
             justify-content: space-around;
         }
@@ -106,10 +111,14 @@
         </div>
     </div>
 
+    <div class="reset">
+        <button class="reset">Reset</button>
+    </div>
+
     <script type="text/javascript">
         const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
-
         const output = document.querySelector('.done');
+        const resetButton = document.querySelector('.reset');
 
         function allChecked() {
             let totalChecked = 0;
@@ -121,11 +130,19 @@
             });
 
             if (totalChecked == checkboxes.length) {
-                output.innerHTML = "BOOOOM!"
+                output.innerHTML = "BOOOOM!";
             }
         }
 
+        function clear() {
+            output.innerHTML = "";
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }
+
         checkboxes.forEach(checkbox => checkbox.addEventListener('click', allChecked));
+        resetButton.addEventListener('click', clear);
     </script>
 </body>
 
