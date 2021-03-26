@@ -118,6 +118,8 @@
     <script type="text/javascript">
         const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
         const output = document.querySelector('.done');
+        const element = document.createElement("img");
+        element.src = 'https://media.giphy.com/media/fx54BeLdQnjOAPn1vq/giphy.gif';
         const resetButton = document.querySelector('.reset');
 
         function allChecked() {
@@ -130,15 +132,15 @@
             });
 
             if (totalChecked == checkboxes.length) {
-                output.innerHTML = "BOOOOM!";
+                output.appendChild(element);
             }
         }
 
         function clear() {
-            output.innerHTML = "";
             checkboxes.forEach(checkbox => {
                 checkbox.checked = false;
             });
+            output.removeChild(element);
         }
 
         checkboxes.forEach(checkbox => checkbox.addEventListener('click', allChecked));
