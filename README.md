@@ -1,3 +1,3 @@
 # Code complete check list
 
-Deployed to [https://stupefied-montalcini-a5c1f3.netlify.app/](https://stupefied-montalcini-a5c1f3.netlify.app/)
+Deployed to [https://readyforreview.netlify.app](https://readyforreview.netlify.app)
